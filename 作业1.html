@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+function reg()
+{
+	var username = document.getElementById("username").value;
+	var email = document.getElementById("email").value;
+	var gender = document.getElementById("number").value;
+	
+	if(document.getElementById("username").checkValidity()//判断用户名是否通过校验
+	  &&document.getElementById("email").checkValidity()//判断密码是否通过校验
+	  &&document.getElementById("number").checkValidity()//判断电子邮箱是否通过校验
+	)
+	{
+		alert(
+			'确认注册信息\n'+
+			'用户名：'+username+'\n'+
+			'电子邮箱：'+email+'\n'+
+			'学号：'+gender+'\n'
+		)	
+	}
+}
+</script>
+<form>
+<fieldset>
+<legend>用户注册页面</legend>
+<center>
+<div style="padding:5px;width=600px">
+	<h4>用户登录信息</h4>
+	<table width='100%'>
+		<tr>
+			<td width='20%'>用户名</td>
+			<td width='40%'>
+            <input id="username" type="text" autofocus="true"
+             pattern="^[a-z A-Z 0-9]{6,}$">
+            <br>
+            <span style="color:red;font-size:12px">只允许输入英文和数字，且长度至少为6位</span>
+            </td>
+			<td width='40%'><font color="red">*</font></td>
+		</tr>
+		<tr>
+			<td>邮箱</td>
+			<td><input id="email" type="email" required="true"/></td>
+			<td><font color="red">*</font></td>
+		</tr>
+        <tr>
+			<td>学号</td>
+			<td><input id="number" type="number" required="true"/></td>
+			<td><font color="red">*</font></td>
+		</tr>
+        <input type="submit" value="注册新用户" onclick="reg()">
+</body>
+</html>
